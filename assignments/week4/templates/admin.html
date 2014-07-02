@@ -1,0 +1,19 @@
+{% include 'head.html' %}
+
+<h3>Admin</h3>
+
+<form action="/admin" method="POST">
+	<div class="form-group">
+		<label>Title</label>
+		<input type="text" name="title" class="form-control">
+	</div>
+	<div class="form-group">
+		<label>Body</label>
+		<textarea name="body" class="form-control"> </textarea>
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-default">Add Blog</button>
+	</div>
+</form>
+
+{% include 'footer.html' %}

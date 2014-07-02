@@ -1,0 +1,30 @@
+{% include 'head.html' %}
+
+{% for blog in blogs %}
+<h3>{{ blog.title }}</h3>
+<p>{{ blog.body }}</p>
+
+<h5>{{ blog.comments|length }} Comments</h5>
+
+<div id="comments">
+	{% for comment in blog.comments %}
+		{% include 'comment.html' %}
+	{% endfor %}
+</div>
+
+<p><strong>Add a comment</strong></p>
+<form action="/comments" method="POST" class="comment-form">
+	<input type="hidden" name="token" value="{{ token }}">
+	<input type="hidden" name="blog_id" value="{{ blog.id }}">
+	<div class="form-group">
+		<textarea name="body" class="form-control"> </textarea>
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-default">Add Comment</button>
+	</div>
+</form>
+
+<hr>
+{% endfor %}
+
+{% include 'footer.html' %}

@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<title>PHP101 Blog</title>
+	</head>
+	<body>
+		<h1>PHP101 Blog</h1>
+
+		<hr>
+
+		<h3>{{ blog.title }}</h3>
+		<p>{{ blog.body }}</p>
+
+		{% for comment in blog.comments %}
+		<p><strong>{{ comment.body }}</strong></p>
+		{% endfor %}
+	</body>
+</script>

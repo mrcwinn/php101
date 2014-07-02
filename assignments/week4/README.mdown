@@ -1,0 +1,12 @@
+## Install Composer and Get Twig ##
+
+curl -s http://getcomposer.org/installer | php
+nano composer.json
+	{
+		"require": {
+			"twig/twig": "1.*"
+		}
+	}
+php composer.phar install
+
+## Require Twig ##
