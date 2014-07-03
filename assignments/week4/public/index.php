@@ -9,13 +9,23 @@
 	$loader	= new Twig_Loader_Filesystem('../templates');
 	$twig	= new Twig_Environment($loader);
 
-
-	// Represent a comment
+	/**
+	 * Class Comment represents a comment on the website.
+	 */
 	class Comment {
+		/** @var string **/
 		public $body;
 
+		/** @var integer **/
 		public $blog_id;
 
+		/** @var integer **/
+		public $user_id;
+
+		/**
+		 * @param string
+		 * @return void
+		 */
 		public function __construct($body = '') {
 			$this->body = $body;
 		}
@@ -25,16 +35,26 @@
 		}
 	}
 
-	// Represent a blog
+	/**
+	 * Class Blog represent a blog entry.
+	 */
 	class Blog {
+		/** @var string **/
 		public $title;
 
+		/** @var string **/
 		public $body;
 
+		/**
+		 * @return void
+		 */
 		public function save() {
 			$this->id = CHSDatabase::saveBlog($this);
 		}
 
+		/**
+		 * @return array
+		 */
 		public function getComments() {
 			return CHSDatabase::getComments($this->id);
 		}
@@ -58,7 +78,7 @@
 	// Respond to the incoming request
 	$path	= ltrim($_SERVER['REQUEST_URI'], '/');
 	$parts	= explode('/', $path);
-	$rid	= '';
+	$rid	= null;
 
 	switch ($parts[0]) {
 		case 'sign-in':
@@ -75,7 +95,7 @@
 			break;
 	}
 
-	if ($rid !== '') {
+	if ($rid !== null) {
 		$file = "../inc/{$rid}.php";
 
 		if (file_exists($file)) {

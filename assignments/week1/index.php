@@ -1,7 +1,7 @@
 <?php
 
 	/**
-	 * Here we assign three variables.
+	 * Here we assign two variables.
 	 * Since whitespace is ignored, we might choose to impose
 	 * some styling and align our assignments.
 	 * Easier to read!
