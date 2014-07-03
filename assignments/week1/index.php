@@ -1,43 +1,35 @@
 <?php
 
-	$name			= 'Chris';
-	$age			= 30;
-	$iceCreamWeight	= 0.5;
-	$totalWeight	= 184 + $iceCreamWeight;
+	/**
+	 * Here we assign three variables.
+	 * Since whitespace is ignored, we might choose to impose
+	 * some styling and align our assignments.
+	 * Easier to read!
+	 */
+	$weight			= 150;
+	$purchased		= true;
 
-	$blog = array();
-	$blog['title']			= 'Charleston adds more ice cream';
-	$blog['body']			= "Jeni's ice cream has opened on King Street.";
-	$blog['status']			= 'published';
+	/**
+	 * This is a PHPDoc — a simple notation about what this
+	 * function accepts (a bool) and what it returns (a float).
+	 *
+	 * @param bool
+	 * @return float
+	 */
+	function getNewWeight($weight, $isPurchased) {
+		if ($isPurchased) {
+			$weight += 0.5;
+		}
 
-	switch ($blog['status']) {
-		case 'published':
-			$msg = 'The post is published.';
-			break;
-		case 'draft':
-			$msg = 'The post is a draft.';
-			break;
-		default:
-			$msg = 'The post is something else!';
-			break;
+		return $weight;
 	}
 
-	function printStrong($string) {
-		print '<strong>' . $string . '</strong>';
-	}
+	/**
+	 * Since getNewWeight() returns data, we can
+	 * assign a variable to the function's return value.
+	 */
+	$newWeight = getNewWeight($weight, $purchased);
 
-	print_r($blog);
+	var_dump($newWeight);
 
-	echo '<hr>';
 
-	var_dump($name);
-
-	var_dump($age);
-
-	var_dump($iceCreamWeight);
-
-	var_dump($totalWeight);
-
-	echo '<hr>';
-
-	printStrong($msg);
